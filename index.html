@@ -1,60 +1,127 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeatherPy Viz</title>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Darcey Altschwager</title>  
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="weather.css">
+  
 </head>
-
-<body>
-    <!--Image-->
-    <h1>Darcey Altschwager</h1>
-
-    <img src="https://placehold.it/200x200" alt="Darcey Altschwager">
-
-    <!--Two paragraphs about who you are-->
-    <p>Hello! My name is Darcey Altschwager and I am a current graduate student at the University of Kansas studying Digital Content Strategy.</p>
-    <p>In my free time I like to run. I hope to run a marathon in October</p>
-
-    <!--An unordered list of thinks that connect to your social media-->
-    <h3>Lets Connect!</h3>
-    <ul>
-        <li><a href="https://www.facebook.com/darcey.altschwager">Facebook</a></li>
-        <li><a href="https://twitter.com/Darcey_Alt">Twitter</a></li>
-        <li><a href="https://www.linkedin.com/in/darcey-altschwager-138702101/">Linedin</a></li>
+  <body style="background-color: lightgray">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="col-md-1"></div>
+          <div class="col-md-1"></div>
+          <div class="col-md-1"></div>
+          <a class="navbar-brand" href="index.html" style="color: white; background-color: navy;">
+            <span class="nav-color">Latitude</span>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="temperature.html">Temperature</a></li>
+            <li><a href="humidity.html">Humidity</a></li>
+            <li><a href="cloud_cover.html">Cloud Cover</a></li>
+            <li><a href="wind_speed.html">Wind Speed</a></li>
+          </ul>
+        </li>
+        <li><a href="comparisons.html">Comparisons</a></li>
+        <li><a href="data.html">Data</a></li>
         
-    </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
 
-    <!--A table that contains 3 columns of your favorite movies, songs and books-->
-    <table border="1">
-            <thead>
-                <tr>
-                    <th colspn="3">Favorites</th>
-                </tr>
-                <tr>
-                    <th>Movies</th>
-                    <th>Books</th>
-                    <th>Artists</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>The Devil Wears Prada</td>
-                    <td>Who Thought This Was a Good Idea?</td>
-                    <td>Mumford and Sons</td>
-                </tr>
-                <tr>
-                    <td>Marley and Me</td>
-                    <td>To Kill a Mockingbird</td>
-                    <td>Rainbow Kitten Surprise</td> 
-                </tr>
-                <tr>
-                    <td>National Treasure</td>
-                    <td>The Bride Wore Size 12</td>
-                    <td>Bishop Briggs</td> 
-                </tr>
-            </tbody>
-        </table>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                  <h2>Summary: Latitude and Longitude</h2>
+                  <hr>
+                  <img class = "img-responsive" src="Images/output_39_1.png" style="width:40%; float: left; margin: 5px;" alt="first image" >
+
+                  <p>The purpose of this analysis was to identify trends in weather patterns as they relate to latitude.  
+                    It was completed by randomly generating 1500 possible values for both latitude and longitude.
+                    The Python library citypy was used to generate city names closest to the randomized latitude and longitude.  
+                    Data was retrieved from the OpenWeatherMapAPI forecast data.  It included 5 days worth of forecast data given in 3 hours intervals; 40 records per city data point.  
+                    Each point of interest, temperature, humidity, cloud cover, and wind speeed, was then averaged and plotted versus latitude for analysis.  
+                    <br>
+                    <br>
+                    The graph shows the location of the cities analyzed.  The color of each point represents temperature with green and red representing the lowest and highest average temperature respectively.   
+
+
+                  </p>
+                </div>
+              </div>
+
+        </div>
+        <div class="col-md-3">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    
+                  <h2>Visualizations</h2>
+                  <hr>
+                  <div class="row" style = "padding-bottom: 10px">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="temperature.html"><img class = "img img-responsive" src="Images/output_35_2.png" style="width:100%" alt=""></a></div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="humidity.html"><img class = "img img-responsive" src="Images/output_36_2.png" style="width:100%" alt=""></a></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="cloud_cover.html"><img class = "img img-responsive" src="Images/output_37_2.png" style="width:100%" alt=""></a></div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><a href="wind_speed.html"><img class = "img img-responsive" src="Images/output_38_2.png" style="width:100%" alt=""></a></div>
+                  </div>
+              
+              </div>
+
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+
+    </div>
+  </div>
+   
+    <footer>
+            <p style = "text-align: center"><i class="glyphicon glyphicon-copyright-mark"> Copyright Coding Bootcamp 2017</i></p>
+            
+    </footer>
+   
+
+
+
+        
+
+        
     
-</body>
+  </body>
 </html>
